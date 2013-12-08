@@ -1,77 +1,79 @@
-Albania
-Andorra
-Armenia
-Austria
-Azerbaijan
-Brussels
-Flemish
-Bulgaria
-BrckoDistrict
-Fed.ofBos.&Herz.
-Rep.Srpska
-Belarus
-BouvetI.
-Walloon
-Switzerland
-Cyprus
-CzechRep.
-Germany
-Bornholm
-Denmark
-England
-CanaryIs.
-BalearicIs.
-Estonia
-Spain
-Finland
-Corsica
-France
-Adjara
-Georgia
-Guadeloupe
-Greece
-FrenchGuiana
-Croatia
-Hungary
-Ireland
-Iceland
-Sardinia
-IsolePelagie
-Pantelleria
-Italy
-Sicily
-Liechtenstein
-Lithuania
-Luxembourg
-Latvia
-Monaco
-Moldova
-Macedonia
-Malta
-Montenegro
-Martinique
-Mayotte
-N.Ireland
-JanMayenI.
-Netherlands
-CaribbeanNetherlands
-Norway
-SvalbardIs.
-Azores
-Madeira
-Poland
-Portugal
-Reunion
-Romania
-Scotland
-Ceuta
-Melilla
-SanMarino
-Serbia
-Vojvodina
-Slovakia
-Slovenia
-Sweden
-Turkey
-Ukraine
-Wales 
+{
+'Albania': 'Albania',
+'Andorra': 'Andorra',
+'Armenia': 'Armenia',
+'Austria': 'Austria',
+'Azerbaijan': 'Azerbaijan',
+'Brussels': 'Brussels',
+'Flemish': 'Flemish',
+'Bulgaria': 'Bulgaria',
+'BrckoDistrict': 'Brcko District',
+'Fed.ofBos.&Herz.': 'Fed. of Bos. & Herz.',
+'Rep.Srpska': 'Rep. Srpska',
+'Belarus': 'Belarus',
+'BouvetI.': 'Bouvet I.',
+'Walloon': 'Walloon',
+'Switzerland': 'Switzerland',
+'Cyprus': 'Cyprus',
+'CzechRep.': 'Czech Rep.',
+'Germany': 'Germany',
+'Bornholm': 'Bornholm',
+'Denmark': 'Denmark',
+'England': 'England',
+'CanaryIs.': 'Canary Is.',
+'BalearicIs.': 'Balearic Is.',
+'Estonia': 'Estonia',
+'Spain': 'Spain',
+'Finland': 'Finland',
+'Corsica': 'Corsica',
+'France': 'France',
+'Adjara': 'Adjara',
+'Georgia': 'Georgia',
+'Guadeloupe': 'Guadeloupe',
+'Greece': 'Greece',
+'FrenchGuiana': 'French Guiana',
+'Croatia': 'Croatia',
+'Hungary': 'Hungary',
+'Ireland': 'Ireland',
+'Iceland': 'Iceland',
+'Sardinia': 'Sardinia',
+'IsolePelagie': 'Isole Pelagie',
+'Pantelleria': 'Pantelleria',
+'Italy': 'Italy',
+'Sicily': 'Sicily',
+'Liechtenstein': 'Liechtenstein',
+'Lithuania': 'Lithuania',
+'Luxembourg': 'Luxembourg',
+'Latvia': 'Latvia',
+'Monaco': 'Monaco',
+'Moldova': 'Moldova',
+'Macedonia': 'Macedonia',
+'Malta': 'Malta',
+'Montenegro': 'Montenegro',
+'Martinique': 'Martinique',
+'Mayotte': 'Mayotte',
+'N.Ireland': 'N. Ireland',
+'JanMayenI.': 'Jan Mayen I.',
+'Netherlands': 'Netherlands',
+'CaribbeanNetherlands': 'Caribbean Netherlands',
+'Norway': 'Norway',
+'SvalbardIs.': 'Svalbard Is.',
+'Azores': 'Azores',
+'Madeira': 'Madeira',
+'Poland': 'Poland',
+'Portugal': 'Portugal',
+'Reunion': 'Reunion',
+'Romania': 'Romania',
+'Scotland': 'Scotland',
+'Ceuta': 'Ceuta',
+'Melilla': 'Melilla',
+'SanMarino': 'San Marino',
+'Serbia': 'Serbia',
+'Vojvodina': 'Vojvodina',
+'Slovakia': 'Slovakia',
+'Slovenia': 'Slovenia',
+'Sweden': 'Sweden',
+'Turkey': 'Turkey',
+'Ukraine': 'Ukraine',
+'Wales ': 'Wales '
+}

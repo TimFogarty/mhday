@@ -78,11 +78,19 @@ var countryIds = {
     'Wales ': 'Wales '
 };
 
+var quizon = false;
 
+var chosenCountry = "France";
+
+var artist = {
+    name: "Daft Punk",
+    desc: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+};
 
 $(document).ready(function(){
 
     mapping();
+    player();
 });
 
 
@@ -151,4 +159,78 @@ function hoverCountryHandling() {
         }
     });
     
+}
+
+
+function player(){
+    DZ.init({
+	appId  : '129015',
+	channelUrl : 'http://folkr.herokuapp.com/channel.html',
+	player : {
+	    onload : playhandle
+	}
+    });
+}
+
+function playhandle() {
+
+    $("#fplay").fadeIn("slow");
+
+    $("#fplay").click(function(){
+	$(".intro").fadeOut("medium", function() {
+	    $(".quiz").fadeIn("medium");
+	    quizon = true;
+	    DZ.player.playAlbum(302127);
+	    return false;
+	});
+    });
+
+    $("#pauseplay").click(function(){
+	if ($("#pauseplay .glyphicon").hasClass("glyphicon-pause")) {
+	    DZ.player.pause();
+	    $("#pauseplay .glyphicon").removeClass("glyphicon-pause").addClass("glyphicon-play");
+	    $(".playing-message").html(" &nbsp; Stopped Playing.");
+	    return false;
+	} else {
+	    DZ.player.play();
+	    $("#pauseplay .glyphicon").removeClass("glyphicon-play").addClass("glyphicon-pause");
+	    $(".playing-message").html(" &nbsp; Now Playing...");
+	    return false;
+	}
+    });
+
+    $(".subunit").click(function(){
+	if (quizon === true) {
+	    $(this).css({"fill": "#C44D58"});
+	    var thisname = $(this).attr("class").split(" ")[1];
+	    
+	    if (chosenCountry === thisname) {
+		$(this).css({"fill": "#C7F464"});
+		$("#solution").text("Well done! The music was from " + thisname + "!");
+	    } else {
+		$(this).css({"fill": "#C44D58"});
+		$("."+chosenCountry).css({"fill": "#C7F464"});
+		$("#solution").text("Sorry. The music was from " + chosenCountry + ".");
+	    }
+
+	    $(".artist-name").text(artist.name);
+	    $(".artist-description").text(artist.desc);
+	    
+	    $(".quiz").fadeOut("medium", function(){
+		$(".answer").fadeIn("medium");
+	    });
+	}
+    });
+
+
+    $("#playagain").click(function(){
+	$(".subunit").css({'fill': '#45ADA8'});
+	
+	$(".answer").fadeOut("medium", function() {
+	    $(".quiz").fadeIn("medium");
+	    quizon = true;
+	    DZ.player.playAlbum(302127);
+	    return false;
+	});
+    });
 }

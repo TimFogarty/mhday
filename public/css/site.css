@@ -1,3 +1,18 @@
+@font-face {
+    font-family: "Socialglyphs";
+    src: url(/fonts/socialglyphs-regular.eot?),
+    url(/fonts/socialglyphs-regular.woff) format("woff"),
+    url(/fonts/socialglyphs-regular.ttf) format("truetype"),
+    url(/fonts/socialglyphs-regular.svg#socialglyphs-regular) format("svg");
+}
+
+.socialglyph {
+    font-family: Socialglyphs;
+    font-size: 27px;
+    line-height: 10px;
+    margin-right: 10px;
+}
+
 .subunit {
     fill: #45ADA8; //#556270;
     stroke: #343838;
@@ -56,7 +71,7 @@ body {
     margin-right: 10px;
 }
 
-.instructions > .intro > h2 {
+.instructions h2 {
     color: #fff;
     text-align: center;
     font-weight: 300;
@@ -93,4 +108,55 @@ body {
     width: 40px;
     margin-bottom: 15px;
     margin-right: 15px;
+}
+
+.instructions .quiz {
+    display: none;
+    padding-top: 200px;
+}
+
+.pauseplay {
+    margin-right: 15px;
+}
+
+#fplay {
+    display: none;
+}
+
+.answer {
+    display: none;
+    padding-top: 20px;
+}
+
+.artist-image {
+    width: 240px;
+    height: 240px;
+    margin-left: 40px;
+    margin-right: 40px;
+    float: left;
+}
+
+.answer .artist-name {
+    margin-top: 40px;
+    text-align: left;
+}
+
+.artist-description {
+    color: #fff;
+    margin-right:40px;
+    max-height: 200px;
+}
+
+#playagain > .glyphicon {
+    margin-right: 10px;
+}
+
+.btm-btn {
+    bottom: 80px;
+    left: 80px;
+    position: absolute;
+}
+
+.btm-btn a {
+    margin-right: 20px;
 }

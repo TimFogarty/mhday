@@ -18,6 +18,7 @@ app.use(app.router);
 app.use(express.static(__dirname + '/public'));
 
 app.get('/', routes.index);
+app.get('/channel.html', routes.channel);
 
 var server = http.createServer(app);
 server.listen(process.env.PORT || 8000);

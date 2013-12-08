@@ -1,15 +1,39 @@
 <% include header.ejs %>
+<a href="https://github.com/TimFogarty" target="_blank"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"></a>
 
 <h1 class="titlebar"><img src="img/guitar.png">Folkr - Discover European Culture</h1>
 <div class="row">
   <div class="col-md-6 instructions-cont">
     <div class="instructions">
+      
+
       <div class="intro">
 	<h2>Play a random piece of folk music.</h2>
 	<h2>Guess where the music is from.</h2>
-	<h2>Win points. Discover music. Learn about cultures.</h2>
-	<a href="#" class="btn btn-outline-inverse btn-lg"><span class="glyphicon glyphicon-play"></span>Play Random Music</a>
+	<h2>Discover cultures.</h2>
+	<a id="fplay" href="#" class="btn btn-outline-inverse btn-lg"><span class="glyphicon glyphicon-play"></span>Play Random Music</a>
       </div>
+      
+      <div class="quiz">
+	<h2><a id="pauseplay" href="#" class="btn btn-outline-inverse"><span class="glyphicon glyphicon-pause"></span></a></span></a><span class="playing-message"> &nbsp;  Now Playing...</span></h2>
+	<h2>Where do you think the music is from?</h2>
+      </div>
+
+<div class="answer">
+  <h2 id="solution"></h2>
+  <div>
+  <div class="artist-image" style="background-image: url(http://userserve-ak.last.fm/serve/500/4183432/Daft+Punk+daftpunk_1.jpg)"></div>
+
+  <h2 class="artist-name"></h2>
+  <p class="artist-description"></p>
+</div>
+  <div class="btm-btn">
+  <a id="playagain" href="#" class="btn btn-outline-inverse btn-lg"><span class="glyphicon glyphicon-play"></span>Play Another...</a>
+  <a id="tweet" href="#" class="btn btn-outline-inverse btn-lg"><span class="socialglyph">t</span>Tweet your find!</a>
+  <a id="deezer" href="#" class="btn btn-outline-inverse btn-lg">Listen on Deezer</a>
+</div>
+</div>
+  
     </div>
   </div>
   <div class="col-md-6">
@@ -17,5 +41,5 @@
   </div>
 </div>
 
+<p style="color:#ccc; text-align:center; margin-bottom:0px; margin-top:-10px;line-height:0.8;">Built with Echo Nest and Deezer.</p>
 <% include footer.ejs %>
-
