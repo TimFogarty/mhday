@@ -56,15 +56,15 @@ body {
 }
 
 .instructions > .intro {
-    padding-top: 165px;
+    padding-top: 140px;
     position: relative;
 }
 
 .instructions > .intro > a.btn-lg {
-    margin-left: -101px;
+    margin-left: -110px;
     left: 50%;
     position: absolute;
-    margin-top: 50px;
+    margin-top: 20px;
 }
 
 .instructions > .intro > a.btn-lg > span {
@@ -75,6 +75,13 @@ body {
     color: #fff;
     text-align: center;
     font-weight: 300;
+}
+
+.instructions h3 {
+    color: #fff;
+    text-align: center;
+    font-weight: 300;
+    margin-top: 50px;
 }
 
 .bs-masthead .btn-outline-inverse {
@@ -130,7 +137,6 @@ body {
 
 .artist-image {
     width: 240px;
-    height: 240px;
     margin-left: 40px;
     margin-right: 40px;
     float: left;
@@ -145,6 +151,7 @@ body {
     color: #fff;
     margin-right:40px;
     max-height: 200px;
+    overflow-y: scroll;
 }
 
 #playagain > .glyphicon {
@@ -158,5 +165,21 @@ body {
 }
 
 .btm-btn a {
-    margin-right: 20px;
+    margin-right: 10px;
+}
+
+#solution {
+    margin-bottom: 80px;
+}
+
+.bottom-foot {
+    color:#ccc;
+    text-align:center;
+    margin-bottom:0px;
+    margin-top:-10px;
+    line-height:0.8;
+}
+
+.bottom-foot a:hover {
+    color: #4ECDC4;
 }

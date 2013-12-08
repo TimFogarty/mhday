@@ -1,96 +1,64 @@
-var countryIds = {
-    'Albania': 'Albania',
-    'Andorra': 'Andorra',
-    'Armenia': 'Armenia',
-    'Austria': 'Austria',
-    'Azerbaijan': 'Azerbaijan',
-    'Brussels': 'Brussels',
-    'Flemish': 'Flemish',
-    'Bulgaria': 'Bulgaria',
-    'BrckoDistrict': 'Brcko District',
-    'Fed.ofBos.&Herz.': 'Fed. of Bos. & Herz.',
-    'Rep.Srpska': 'Rep. Srpska',
-    'Belarus': 'Belarus',
-    'BouvetI.': 'Bouvet I.',
-    'Walloon': 'Walloon',
-    'Switzerland': 'Switzerland',
-    'Cyprus': 'Cyprus',
-    'CzechRep.': 'Czech Rep.',
-    'Germany': 'Germany',
-    'Bornholm': 'Bornholm',
-    'Denmark': 'Denmark',
-    'England': 'England',
-    'CanaryIs.': 'Canary Is.',
-    'BalearicIs.': 'Balearic Is.',
-    'Estonia': 'Estonia',
-    'Spain': 'Spain',
-    'Finland': 'Finland',
-    'Corsica': 'Corsica',
-    'France': 'France',
-    'Adjara': 'Adjara',
-    'Georgia': 'Georgia',
-    'Guadeloupe': 'Guadeloupe',
-    'Greece': 'Greece',
-    'FrenchGuiana': 'French Guiana',
-    'Croatia': 'Croatia',
-    'Hungary': 'Hungary',
-    'Ireland': 'Ireland',
-    'Iceland': 'Iceland',
-    'Sardinia': 'Sardinia',
-    'IsolePelagie': 'Isole Pelagie',
-    'Pantelleria': 'Pantelleria',
-    'Italy': 'Italy',
-    'Sicily': 'Sicily',
-    'Liechtenstein': 'Liechtenstein',
-    'Lithuania': 'Lithuania',
-    'Luxembourg': 'Luxembourg',
-    'Latvia': 'Latvia',
-    'Monaco': 'Monaco',
-    'Moldova': 'Moldova',
-    'Macedonia': 'Macedonia',
-    'Malta': 'Malta',
-    'Montenegro': 'Montenegro',
-    'Martinique': 'Martinique',
-    'Mayotte': 'Mayotte',
-    'N.Ireland': 'N. Ireland',
-    'JanMayenI.': 'Jan Mayen I.',
-    'Netherlands': 'Netherlands',
-    'CaribbeanNetherlands': 'Caribbean Netherlands',
-    'Norway': 'Norway',
-    'SvalbardIs.': 'Svalbard Is.',
-    'Azores': 'Azores',
-    'Madeira': 'Madeira',
-    'Poland': 'Poland',
-    'Portugal': 'Portugal',
-    'Reunion': 'Reunion',
-    'Romania': 'Romania',
-    'Scotland': 'Scotland',
-    'Ceuta': 'Ceuta',
-    'Melilla': 'Melilla',
-    'SanMarino': 'San Marino',
-    'Serbia': 'Serbia',
-    'Vojvodina': 'Vojvodina',
-    'Slovakia': 'Slovakia',
-    'Slovenia': 'Slovenia',
-    'Sweden': 'Sweden',
-    'Turkey': 'Turkey',
-    'Ukraine': 'Ukraine',
-    'Wales ': 'Wales '
-};
+var countryIds = [
+    'Albania',
+    'Austria',
+    'Bulgaria',
+    'Germany',
+    'Denmark',
+    'England',
+    'Estonia',
+    'Spain',
+    'Finland',
+    'France',
+    'Greece',
+    'Croatia',
+    'Hungary',
+    'Ireland',
+    'Italy',
+    'Lithuania',
+    'Latvia',
+    'Moldova',
+    'Macedonia',
+    'Netherlands',
+    'Norway',
+    'Poland',
+    'Portugal',
+    'Romania',
+    'Scotland',
+    'Serbia',
+    'Slovakia',
+    'Slovenia',
+    'Sweden',
+    'Turkey',
+    'Ukraine',
+    'Wales '
+];
 
 var quizon = false;
 
-var chosenCountry = "France";
+var chosenCountry = countryIds[Math.floor(Math.random()*32)];
+var artist_number = Math.floor(Math.random()*5 + 1);
 
-var artist = {
-    name: "Daft Punk",
-    desc: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
-};
+var artist_name, deezer_id, artist_img, artist_desc = '';
 
 $(document).ready(function(){
 
     mapping();
     player();
+
+    
+    $.ajax({
+	url: "http://developer.echonest.com/api/v4/artist/search?api_key=OHZTN1ZZTYPWLDB7A&format=json&artist_location="+chosenCountry+"&results=1&start=2&bucket=biographies&bucket=images&bucket=id:deezer"
+    }).done(function(data){
+	artist_name = data.response.artists[0].name;
+	deezer_id = data.response.artists[0].foreign_ids[0].foreign_id.split(":").pop();
+	artist_img = data.response.artists[0].images[0].url;
+	artist_desc = data.response.artists[0].biographies[0].text;
+	console.log(artist_name);
+	console.log(deezer_id);
+	console.log(artist_img);
+	console.log(artist_desc);
+    });
+    
 });
 
 
@@ -116,7 +84,7 @@ function mapping(){
 	    .data(topojson.feature(eu, eu.objects.subunits).features)
 	    .enter().append("path")
 	    .attr("class", function(d) { return "subunit " + d.properties.name.replace(/\s+/g, ''); })
-	    .attr("data-tooltip", function(d) { console.log(d.properties.name); return d.properties.name; })
+	    .attr("data-tooltip", function(d) { return d.properties.name; })
 	    .attr("d", path);
 
 	
@@ -180,21 +148,21 @@ function playhandle() {
 	$(".intro").fadeOut("medium", function() {
 	    $(".quiz").fadeIn("medium");
 	    quizon = true;
-	    DZ.player.playAlbum(302127);
+	    DZ.player.playSmartRadio(deezer_id);
 	    return false;
 	});
     });
 
-    $("#pauseplay").click(function(){
-	if ($("#pauseplay .glyphicon").hasClass("glyphicon-pause")) {
+    $(".pauseplay").click(function(){
+	if ($(".pauseplay .glyphicon").hasClass("glyphicon-pause")) {
 	    DZ.player.pause();
-	    $("#pauseplay .glyphicon").removeClass("glyphicon-pause").addClass("glyphicon-play");
-	    $(".playing-message").html(" &nbsp; Stopped Playing.");
+	    $(".pauseplay .glyphicon").removeClass("glyphicon-pause").addClass("glyphicon-play");
+	    $(".playing-message").text("Stopped Playing.");
 	    return false;
 	} else {
 	    DZ.player.play();
-	    $("#pauseplay .glyphicon").removeClass("glyphicon-play").addClass("glyphicon-pause");
-	    $(".playing-message").html(" &nbsp; Now Playing...");
+	    $(".pauseplay .glyphicon").removeClass("glyphicon-play").addClass("glyphicon-pause");
+	    $(".playing-message").text("Now Playing...");
 	    return false;
 	}
     });
@@ -213,8 +181,14 @@ function playhandle() {
 		$("#solution").text("Sorry. The music was from " + chosenCountry + ".");
 	    }
 
-	    $(".artist-name").text(artist.name);
-	    $(".artist-description").text(artist.desc);
+	    $("#deezer").attr("href", "http://www.deezer.com/artist/" + deezer_id);
+	    $(".artist-name").text(artist_name);
+	    $(".artist-description").text(artist_desc);
+	    $(".artist-image").attr("src", artist_img);
+	    var tweet_text = "I just found a new artist, " + artist_name + ", at ";
+	    tweet_text = encodeURI(tweet_text);
+	    tweet_url = encodeURI("http://euphorics.herokuapp.com/");
+	    $("#tweet").attr("href", "https://twitter.com/intent/tweet?text=" + tweet_text + "&url="+tweet_url);
 	    
 	    $(".quiz").fadeOut("medium", function(){
 		$(".answer").fadeIn("medium");
@@ -229,8 +203,30 @@ function playhandle() {
 	$(".answer").fadeOut("medium", function() {
 	    $(".quiz").fadeIn("medium");
 	    quizon = true;
-	    DZ.player.playAlbum(302127);
-	    return false;
+	    chosenCountry = countryIds[Math.floor(Math.random()*32)];
+	    artist_number = Math.floor(Math.random()*5 + 1);
+	    $.ajax({
+		url: "http://developer.echonest.com/api/v4/artist/search?api_key=OHZTN1ZZTYPWLDB7A&format=json&artist_location="+chosenCountry+"&results=1&start=2&bucket=biographies&bucket=images&bucket=id:deezer"
+	    }).done(function(data){
+		artist_name = data.response.artists[0].name;
+		deezer_id = data.response.artists[0].foreign_ids[0].foreign_id.split(":").pop();
+		artist_img = data.response.artists[0].images[0].url;
+		artist_desc = data.response.artists[0].biographies[0].text;
+		console.log(artist_name);
+		console.log(deezer_id);
+		console.log(artist_img);
+		console.log(artist_desc);
+
+		if ($(".quiz .pauseplay .glyphicon").hasClass("glyphicon-play")) {
+		    $(".pauseplay .glyphicon").removeClass("glyphicon-play").addClass("glyphicon-pause");
+		    $(".playing-message").text("Now Playing...");
+		}
+
+		
+		DZ.player.playSmartRadio(deezer_id);
+		return false;
+		
+	    });
 	});
     });
 }
