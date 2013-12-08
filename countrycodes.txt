@@ -1,0 +1,52 @@
+ALB	Albania
+AND	Andorra
+ARM	Armenia
+AUT	Austria
+AZE	Azerbaijan
+BLR	Belarus
+BEL	Belgium
+BIH	Bosnia and Herzegovina
+BGR	Bulgaria
+HRV	Croatia
+CYP	Cyprus
+CZE	Czech Republic
+DNK	Denmark
+EST	Estonia
+FIN	Finland
+FRA	France
+GEO	Georgia
+DEU	Germany
+GRC	Greece
+HUN	Hungary
+ISL	Iceland
+IRL	Ireland
+ITA	Italy
+KAZ	Kazakhstan
+LVA	Latvia
+LIE	Liechtenstein
+LTU	Lithuania
+LUX	Luxembourg
+MKD	Macedonia, the former Yugoslav Republic of
+MLT	Malta
+MDA	Moldova, Republic of
+MCO	Monaco
+MNE	Montenegro
+NLD	Netherlands
+NOR	Norway
+POL	Poland
+PRT	Portugal
+ROU	Romania
+SMR	San Marino
+SRB	Serbia
+SVK	Slovakia
+SVN	Slovenia
+ESP	Spain
+SWE	Sweden
+CHE	Switzerland
+TUR	Turkey
+UKR	Ukraine
+GBR	United Kingdom
+
+
+'ALB', 'AND', 'ARM', 'AUT', 'AZE', 'BLR', 'BEL', 'BIH', 'BGR', 'HRV', 'CYP', 'CZE', 'DNK', 'EST', 'FIN', 'FRA', 'GEO', 'DEU', 'GRC', 'HUN', 'ISL', 'IRL', 'ITA', 'KAZ', 'LVA', 'LIE', 'LTU', 'LUX', 'MKD', 'MLT', 'MDA', 'MCO', 'MNE', 'NLD', 'NOR', 'POL', 'PRT', 'ROU', 'SMR', 'SRB', 'SVK', 'SVN', 'ESP', 'SWE', 'CHE', 'TUR', 'UKR', 'GBR'
+
